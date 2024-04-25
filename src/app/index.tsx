@@ -1,6 +1,6 @@
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import React, { useState } from "react";
-import { Link, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import FormInput from "../components/FormInput";
 import ImageButton from "../components/ImageButton";
 import FullScreen from "../components/containers/Fullscreen";
@@ -13,8 +13,8 @@ export default function index() {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    if (username === "teste" && password === "123")
-      router.push("/carSelection");
+    // if (username === "teste" && password === "123")
+    router.push("/carSelection");
   };
 
   return (
