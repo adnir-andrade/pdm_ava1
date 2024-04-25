@@ -1,8 +1,10 @@
 import { StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
-import { Link, Stack } from "expo-router";
+import { Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useActionSheet } from "@expo/react-native-action-sheet";
+import { useRouter, useNavigation } from "expo-router";
+import { useRoute } from "@react-navigation/native";
 
 type HeaderWithTitleProps = {
   title: string;
@@ -10,9 +12,12 @@ type HeaderWithTitleProps = {
 
 export default function HeaderWithTitle({ title }: HeaderWithTitleProps) {
   const { showActionSheetWithOptions } = useActionSheet();
+  const router = useRouter();
+  const route = useRoute();
+  const navigation = useNavigation();
 
-  const options = ["About", "Logout"];
-  const destructiveButtonIndex = 1;
+  const options = route?.name === "about" ? ["Logout"] : ["About", "Logout"];
+  const destructiveButtonIndex = options.indexOf("Logout");
 
   const handleOpen = () => {
     showActionSheetWithOptions(
@@ -23,13 +28,22 @@ export default function HeaderWithTitle({ title }: HeaderWithTitleProps) {
       (buttonIndex) => {
         switch (buttonIndex) {
           case 0:
-            console.log("About");
-            <Link replace href="/about">
-              Login
-            </Link>;
+            if (route?.name === "about") {
+              console.log("Logout!");
+              navigation.reset({
+                index: 0,
+                routes: [{ name: "index" }],
+              });
+              break;
+            }
+            router.push("/about");
             break;
           case 1:
             console.log("Logout");
+            navigation.reset({
+              index: 0,
+              routes: [{ name: "index" }],
+            });
             break;
         }
       }
