@@ -2,6 +2,7 @@ import { View, Text, SectionList, StyleSheet } from "react-native";
 import React from "react";
 
 import data from "../services/data";
+import HeaderWithTitle from "../components/headers/HeaderWithTitle";
 
 const uniqueBrands = [...new Set(data.map((car) => car.brand))];
 
@@ -13,6 +14,7 @@ const carsByBrand = uniqueBrands.map((brand) => ({
 export default function carSelection() {
   return (
     <View>
+      <HeaderWithTitle title="Sunshine Autos" />
       <SectionList
         sections={carsByBrand}
         keyExtractor={(item) => item.id.toString()}
