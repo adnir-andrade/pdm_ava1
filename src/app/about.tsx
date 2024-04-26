@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Linking,
+} from "react-native";
 import React from "react";
 import HeaderWithTitle from "../components/headers/HeaderWithMenu";
 import Background from "../components/ui/Background";
@@ -21,11 +28,17 @@ export default function about() {
             <Text style={styles.title}>Adnir Andrade</Text>
           </View>
           <View style={styles.githubContainer}>
-            <Image
-              source={require("../../assets/images/github.png")}
-              style={styles.github}
-              resizeMode="contain"
-            />
+            <TouchableOpacity
+              onPress={() =>
+                Linking.openURL("https://github.com/adnir-andrade")
+              }
+            >
+              <Image
+                source={require("../../assets/images/github.png")}
+                style={styles.github}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
           </View>
         </Card>
       </View>
