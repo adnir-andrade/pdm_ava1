@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { ImageBackground, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
@@ -54,17 +54,28 @@ export default function HeaderWithMenu({ title }: HeaderWithTitleProps) {
     <Stack.Screen
       options={{
         headerShown: true,
+        headerBackground: () => (
+          <ImageBackground
+            source={require("../../../assets/images/logo.png")}
+            style={styles.background}
+            resizeMode="contain"
+          />
+        ),
         title,
         headerRight: () => (
           <TouchableOpacity style={styles.menuIcon}>
             <Ionicons
               name="menu-outline"
               size={24}
-              color="black"
+              color="purple"
               onPress={handleOpen}
             />
           </TouchableOpacity>
         ),
+        headerTitleStyle: {
+          color: "white",
+        },
+        headerTintColor: "purple",
       }}
     ></Stack.Screen>
   );
@@ -79,12 +90,12 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
   },
-  logo: {
-    color: "white",
-    fontSize: 24,
-    fontWeight: "bold",
-  },
   menuIcon: {
     padding: 5,
+  },
+  background: {
+    height: "100%",
+    opacity: 0.9,
+    backgroundColor: "black",
   },
 });
