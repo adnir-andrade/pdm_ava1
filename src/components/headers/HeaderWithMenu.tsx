@@ -29,7 +29,6 @@ export default function HeaderWithMenu({ title }: HeaderWithTitleProps) {
         switch (buttonIndex) {
           case 0:
             if (route?.name === "about") {
-              console.log("Logout!");
               navigation.reset({
                 index: 0,
                 routes: [{ name: "index" }],
@@ -39,7 +38,6 @@ export default function HeaderWithMenu({ title }: HeaderWithTitleProps) {
             router.push("/about");
             break;
           case 1:
-            console.log("Logout");
             navigation.reset({
               index: 0,
               routes: [{ name: "index" }],
