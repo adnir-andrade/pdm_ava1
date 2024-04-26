@@ -18,7 +18,7 @@ export default function carSelection() {
     <View>
       <Background>
         <HeaderWithTitle title="Sunshine Autos" />
-        <View style={styles.sectionContainer}>
+        <View style={styles.mainContainer}>
           <Card>
             <SectionList
               sections={carsByBrand}
@@ -70,8 +70,9 @@ const styles = StyleSheet.create({
   headerContainer: {
     paddingHorizontal: 10,
     marginTop: 15,
+    marginBottom: 20,
   },
-  sectionContainer: {
-    margin: 50,
+  mainContainer: {
+    margin: 30,
   },
 });
