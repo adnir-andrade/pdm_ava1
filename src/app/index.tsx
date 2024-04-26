@@ -48,10 +48,6 @@ export default function index() {
 }
 
 const styles = StyleSheet.create({
-  registerLink: {
-    fontSize: 12,
-    textAlign: "center",
-  },
   logo: {
     fontSize: 32,
     fontWeight: "bold",

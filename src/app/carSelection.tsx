@@ -3,10 +3,11 @@ import React from "react";
 
 import data from "../services/data";
 import HeaderWithTitle from "../components/headers/HeaderWithTitle";
+import Background from "../components/ui/Background";
 
 const uniqueBrands = [...new Set(data.map((car) => car.brand))];
 
-const carsByBrand = uniqueBrands.map((brand) => ({
+const carsByBrand = uniqueBrands.sort().map((brand) => ({
   title: brand,
   data: data.filter((car) => car.brand === brand),
 }));
@@ -14,21 +15,23 @@ const carsByBrand = uniqueBrands.map((brand) => ({
 export default function carSelection() {
   return (
     <View>
-      <HeaderWithTitle title="Sunshine Autos" />
-      <SectionList
-        sections={carsByBrand}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.item}>
-            <Text style={styles.title}>ID: {item.id}</Text>
-            <Text style={styles.title}>Model: {item.model}</Text>
-            <Text style={styles.title}>Year: {item.year}</Text>
-          </View>
-        )}
-        renderSectionHeader={({ section: { title } }) => (
-          <Text style={styles.header}>{title}</Text>
-        )}
-      />
+      <Background>
+        <HeaderWithTitle title="Sunshine Autos" />
+        <SectionList
+          sections={carsByBrand}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <View style={styles.item}>
+              <Text style={styles.title}>ID: {item.id}</Text>
+              <Text style={styles.title}>Model: {item.model}</Text>
+              <Text style={styles.title}>Year: {item.year}</Text>
+            </View>
+          )}
+          renderSectionHeader={({ section: { title } }) => (
+            <Text style={styles.header}>{title}</Text>
+          )}
+        />
+      </Background>
     </View>
   );
 }
