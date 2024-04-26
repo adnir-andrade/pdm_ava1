@@ -16,13 +16,12 @@ export default function FormInput({ label, ...rest }: FormInput) {
 
   return (
     <View style={[styles.container, focus && styles.focusContainer]}>
-      {label && (
-        <Text style={[styles.label, focus && styles.focus]}>{label}</Text>
-      )}
+      {label && <Text style={[styles.label, styles.neonText]}>{label}</Text>}
       <TextInput
         {...rest}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
+        style={[styles.input]}
       />
     </View>
   );
@@ -36,8 +35,21 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   label: {
-    fontSize: 12,
+    fontSize: 13,
   },
-  focus: {},
-  focusContainer: {},
+  focusContainer: {
+    borderBottomColor: "purple",
+  },
+  neonText: {
+    color: "#fff",
+    textShadowColor: "purple",
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 10,
+  },
+  input: {
+    color: "#fff",
+    textShadowColor: "cyan",
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 10,
+  },
 });

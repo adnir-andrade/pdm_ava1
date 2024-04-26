@@ -1,30 +1,30 @@
 import React from "react";
 import {
+  ImageBackground,
   StyleSheet,
-  Text,
   TouchableOpacity,
   TouchableOpacityProps,
 } from "react-native";
 
-type FormInput = {
-  title: string;
-} & TouchableOpacityProps;
+type FormInput = {} & TouchableOpacityProps;
 
-export default function ImageButton({ title, ...rest }: FormInput) {
+export default function ImageButton({ ...rest }: FormInput) {
   return (
     <TouchableOpacity style={styles.container} {...rest}>
-      <Text style={styles.title}>{title}</Text>
+      <ImageBackground
+        source={require("../../assets/images/LOGIN-4-26-2024.png")}
+        style={styles.bg}
+        resizeMode="contain"
+      ></ImageBackground>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 2,
-    padding: 16,
-    width: "100%",
+    marginTop: 20,
   },
-  title: {
-    textAlign: "center",
+  bg: {
+    height: 100,
   },
 });
