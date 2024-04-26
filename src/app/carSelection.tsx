@@ -2,7 +2,7 @@ import { View, Text, SectionList, StyleSheet } from "react-native";
 import React from "react";
 
 import data from "../services/data";
-import HeaderWithTitle from "../components/headers/HeaderWithTitle";
+import HeaderWithTitle from "../components/headers/HeaderWithMenu";
 import Background from "../components/ui/Background";
 
 const uniqueBrands = [...new Set(data.map((car) => car.brand))];

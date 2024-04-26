@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import React from "react";
-import HeaderWithTitle from "../components/headers/HeaderWithTitle";
+import HeaderWithTitle from "../components/headers/HeaderWithMenu";
 import Background from "../components/ui/Background";
 
 export default function about() {

@@ -10,7 +10,7 @@ type HeaderWithTitleProps = {
   title: string;
 };
 
-export default function HeaderWithTitle({ title }: HeaderWithTitleProps) {
+export default function HeaderWithMenu({ title }: HeaderWithTitleProps) {
   const { showActionSheetWithOptions } = useActionSheet();
   const router = useRouter();
   const route = useRoute();
