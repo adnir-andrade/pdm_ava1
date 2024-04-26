@@ -1,21 +1,71 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import HeaderWithTitle from "../components/headers/HeaderWithMenu";
 import Background from "../components/ui/Background";
+import Card from "../components/containers/Card";
 
 export default function about() {
   return (
-    <View>
-      <Background>
+    <Background>
+      <View style={styles.mainContainer}>
         <HeaderWithTitle title="Sunshine Autos" />
 
-        <Text>Sunshine Autos</Text>
-        <Text>v. 1.0</Text>
+        <Card>
+          <View style={[styles.container, styles.firstContainer]}>
+            <Text style={styles.title}>Sunshine Autos</Text>
+            <Text style={styles.subtitle}>v.1.0</Text>
+          </View>
 
-        <Text>Desenvolvido por</Text>
-        <Text>Adnir Andrade</Text>
-        <Text>Link para o github aqui</Text>
-      </Background>
-    </View>
+          <View style={styles.container}>
+            <Text style={styles.subtitle}>Desenvolvido por</Text>
+            <Text style={styles.title}>Adnir Andrade</Text>
+          </View>
+          <View style={styles.githubContainer}>
+            <Image
+              source={require("../../assets/images/github.png")}
+              style={styles.github}
+              resizeMode="contain"
+            />
+          </View>
+        </Card>
+      </View>
+    </Background>
   );
 }
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    margin: 30,
+  },
+  firstContainer: {
+    marginTop: 45,
+  },
+  container: {
+    marginBottom: 40,
+    alignContent: "center",
+  },
+  title: {
+    fontSize: 32,
+    textAlign: "center",
+    color: "#fff",
+    textShadowColor: "purple",
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 15,
+  },
+  subtitle: {
+    fontSize: 16,
+    textAlign: "center",
+    color: "#fff",
+    textShadowColor: "cyan",
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 15,
+  },
+  githubContainer: {
+    alignItems: "center",
+  },
+  github: {
+    marginTop: 30,
+    height: 80,
+    width: 80,
+  },
+});
