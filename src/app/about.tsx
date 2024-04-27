@@ -1,15 +1,9 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  Linking,
-} from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import HeaderWithTitle from "../components/headers/HeaderWithMenu";
 import Background from "../components/ui/Background";
 import Card from "../components/containers/Card";
+import GithubButton from "../components/ui/GithubButton";
 
 export default function about() {
   return (
@@ -27,19 +21,7 @@ export default function about() {
             <Text style={styles.subtitle}>Desenvolvido por</Text>
             <Text style={styles.title}>Adnir Andrade</Text>
           </View>
-          <View style={styles.githubContainer}>
-            <TouchableOpacity
-              onPress={() =>
-                Linking.openURL("https://github.com/adnir-andrade")
-              }
-            >
-              <Image
-                source={require("../../assets/images/github.png")}
-                style={styles.github}
-                resizeMode="contain"
-              />
-            </TouchableOpacity>
-          </View>
+          <GithubButton />
         </Card>
       </View>
     </Background>
@@ -72,13 +54,5 @@ const styles = StyleSheet.create({
     textShadowColor: "cyan",
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 15,
-  },
-  githubContainer: {
-    alignItems: "center",
-  },
-  github: {
-    marginTop: 30,
-    height: 80,
-    width: 80,
   },
 });
