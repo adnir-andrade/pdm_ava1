@@ -1,12 +1,11 @@
-import { StyleSheet, View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { useRouter } from "expo-router";
-import FormInput from "../components/FormInput";
 import LoginButton from "../components/LoginButton";
 import FullScreen from "../components/containers/Fullscreen";
 import Background from "../components/ui/Background";
 import Logo from "../components/ui/Logo";
-import Card from "../components/containers/Card";
+import LoginForm from "../components/LoginForm";
 
 export default function index() {
   const router = useRouter();
@@ -24,22 +23,12 @@ export default function index() {
       <Background>
         <View style={styles.container}>
           <Logo />
-          <View style={styles.form}>
-            <Card>
-              <FormInput
-                label="USERNAME"
-                value={username}
-                onChangeText={setUsername}
-              />
-              <FormInput
-                label="PASSWORD"
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry
-              />
-            </Card>
-          </View>
-
+          <LoginForm
+            username={username}
+            password={password}
+            setUsername={setUsername}
+            setPassword={setPassword}
+          />
           <LoginButton onPress={handleLogin} />
         </View>
       </Background>
@@ -56,9 +45,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-  },
-  form: {
-    paddingTop: 100,
-    paddingHorizontal: 40,
   },
 });
