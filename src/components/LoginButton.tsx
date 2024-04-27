@@ -8,7 +8,7 @@ import {
 
 type FormInput = {} & TouchableOpacityProps;
 
-export default function ImageButton({ ...rest }: FormInput) {
+export default function LoginButton({ ...rest }: FormInput) {
   return (
     <TouchableOpacity style={styles.container} {...rest}>
       <ImageBackground

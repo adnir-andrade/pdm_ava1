@@ -2,10 +2,10 @@ import { StyleSheet, View } from "react-native";
 import React, { useState } from "react";
 import { useRouter } from "expo-router";
 import FormInput from "../components/FormInput";
-import ImageButton from "../components/ImageButton";
+import LoginButton from "../components/LoginButton";
 import FullScreen from "../components/containers/Fullscreen";
-import Logo from "../components/Logo";
 import Background from "../components/ui/Background";
+import Logo from "../components/ui/Logo";
 import Card from "../components/containers/Card";
 
 export default function index() {
@@ -40,7 +40,7 @@ export default function index() {
             </Card>
           </View>
 
-          <ImageButton onPress={handleLogin} />
+          <LoginButton onPress={handleLogin} />
         </View>
       </Background>
     </FullScreen>

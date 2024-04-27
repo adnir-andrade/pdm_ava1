@@ -6,7 +6,7 @@ export default function Logo() {
     <View style={styles.container}>
       <Image
         style={styles.logo}
-        source={require("../../assets/images/SUNSHINE-AUTOS-4-26-2024.png")}
+        source={require("../../../assets/images/SUNSHINE-AUTOS-4-26-2024.png")}
       />
     </View>
   );
